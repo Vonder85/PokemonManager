@@ -9,6 +9,7 @@ import { AffichagePokemonService } from '../services/affichage-pokemon.service';
 })
 export class PokemonsComponent implements OnInit {
   pokemons = [];
+  nbPokemons = 0;
   constructor(private affichagePokemonService: AffichagePokemonService) {}
 
 
@@ -16,6 +17,12 @@ export class PokemonsComponent implements OnInit {
 
   ngOnInit(): void {
     this.pokemons = this.affichagePokemonService.getPokemon();
+    this.nbPokemons = this.calculPokemon(this.pokemons);
   }
+  calculPokemon(pokemons: Pokemon[]): number {
+    pokemons = this.affichagePokemonService.getPokemon();
+
+    return this.pokemons.length;
+}
 
 }
