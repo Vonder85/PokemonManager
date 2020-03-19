@@ -1,6 +1,6 @@
 
 <div *ngIf="pokemons && pokemons.length>0">
     <p *ngFor="let po of pokemons">
-        {{po.toString()}}
+        {{po.id}}, {{po.nom}}, {{po.description}} qui mesure {{po.taille | number: '1.0-2'}} mètres et pèse {{po.poids}} kg
     </p>
 </div>
