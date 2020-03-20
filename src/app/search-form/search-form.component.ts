@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PokemonGestionService} from '../services/pokemon-gestion.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class SearchFormComponent implements OnInit {
 
     private creerForm() {
         this.angularForm = this.formBuilder.group({
-            nom: ['']
+            nom: ['', Validators.pattern('[a-zA-Z ]*')]
         });
     }
 
@@ -24,19 +24,23 @@ export class SearchFormComponent implements OnInit {
     }
 
     nomInvalide() {
-        return this.angularForm.controls.nom.invalid && (this.angularForm.controls.nom.dirty || this.angularForm.controls.nom.touched);
+
+        return this.angularForm.controls.nom.invalid &&
+            (this.angularForm.controls.nom.dirty || this.angularForm.controls.nom.touched);
+        ;
     }
 
 
     pbValidation() {
+
         return this.angularForm.pristine || this.angularForm.invalid;
     }
 
     onRechercher() {
-        if (!this.pbValidation()) {
-            this.pokemonGestionService.rechercher(this.angularForm.controls.nom.value);
-            this.angularForm.reset();
-        }
+
+        this.pokemonGestionService.rechercher(this.angularForm.controls.nom.value);
+        this.angularForm.reset();
+
     }
 
 
