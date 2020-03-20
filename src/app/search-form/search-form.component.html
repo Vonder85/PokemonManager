@@ -1,0 +1,7 @@
+<div>
+    <form [formGroup]="angularForm">
+        <input type="text" formControlName="nom" [ngClass]="{'form-control': true, 'is-invalid' : nomInvalide()}">
+        <button type="submit" [disabled]="pbValidation()" (click)="onRechercher()">Rechercher</button>
+        <button type="reset">Annuler</button>
+    </form>
+</div>
