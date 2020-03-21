@@ -29,12 +29,8 @@ export class PokemonGestionService {
                     this.pokemonss.push(po);
                     this.notifier();
                     return true;
-                } else {
-                    return false;
                 }
             }
-        } else {
-            return false;
         }
 
     }

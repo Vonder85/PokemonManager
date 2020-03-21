@@ -10,7 +10,8 @@ import {SearchFormDisplayComponent} from '../search-form-display/search-form-dis
     templateUrl: './search-form.component.html',
     styleUrls: ['./search-form.component.css']
 })
-export class SearchFormComponent implements OnInit {
+export class SearchFormComponent implements OnInit, OnDestroy {
+
 
     angularForm: FormGroup;
     pokemons: Pokemon[];
@@ -26,9 +27,12 @@ export class SearchFormComponent implements OnInit {
     }
 
     ngOnInit(): void {
-
+       this.subscriptionPokemon = this.pokemonGestionService.emetteurPokemon.subscribe((value) => this.pokemons = value);
     }
 
+    ngOnDestroy(): void {
+        this.subscriptionPokemon.unsubscribe();
+    }
 
 
     nomInvalide() {
@@ -51,6 +55,7 @@ export class SearchFormComponent implements OnInit {
             const img = 'http://media.giphy.com/media/3o7bu1nVSxNQUWMAZa/source.gif';
             this.pokemonGestionService.pokemonss.push()
         }*/
+
         this.angularForm.reset();
 
     }
