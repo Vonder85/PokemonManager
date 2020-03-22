@@ -5,9 +5,11 @@ import {Pokemon} from '../Models/pokemon';
     providedIn: 'root'
 })
 export class PokemonGestionService {
+    
     pokemonss: Pokemon[] = [];
     pokemons: Pokemon[] = [];
     public emetteurPokemon: EventEmitter<Pokemon[]> = new EventEmitter<Pokemon[]>();
+
 
     constructor() {
         this.pokemons.push(new Pokemon(1, 'Bulbizarre', 'une graine de type plante et poison', 170, 6.9));
