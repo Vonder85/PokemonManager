@@ -1,5 +1,16 @@
 export class Pokemon {
+
+    /*id: number;
+    hp: number;
+    cp: number;
+    name: string;
+    picture: string;
+    types: Array<string>;
+    created: Date;*/
+
+
     constructor(public id: number, public nom: string, public description: string, public taille: number, public poids: number) {}
+
 
    /* convertirTaille(taille): number {
         let result = 0;

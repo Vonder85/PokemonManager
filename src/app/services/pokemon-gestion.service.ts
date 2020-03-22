@@ -8,7 +8,7 @@ export class PokemonGestionService {
     
     pokemonss: Pokemon[] = [];
     pokemons: Pokemon[] = [];
-    public emetteurPokemon: EventEmitter<Pokemon[]> = new EventEmitter<Pokemon[]>();
+    emetteurPokemon: EventEmitter<Pokemon[]> = new EventEmitter<Pokemon[]>();
 
 
     constructor() {
