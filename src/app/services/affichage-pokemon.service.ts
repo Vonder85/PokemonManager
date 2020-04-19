@@ -1,32 +1,60 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Pokemon} from '../Models/pokemon';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
+
+const BASE_URL = 'https://pokeapi.co/api/v2/';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AffichagePokemonService {
+
+  constructor(private http: HttpClient) {
+  }
   pokemons: Pokemon[] = [];
+    private id: number;
 
-  constructor() {
-    this.pokemons.push(new Pokemon(1, 'Bulbizarre', 'une graine de type plante et poison', 170, 6.9));
-    this.pokemons.push(new Pokemon(2, 'Herbizarre', 'une graine de type plante et poison', 100, 13));
-    this.pokemons.push(new Pokemon(3, 'Florizarre', 'une graine de type plante et poison', 200, 100));
-    this.pokemons.push(new Pokemon(4, 'Salamèche', 'un lézard de type feu', 60, 8.5));
-    this.pokemons.push(new Pokemon(5, 'Reptincel', 'une flamme de type feu', 110, 19));
-    this.pokemons.push(new Pokemon(6, 'Dracaufeu', 'une flamme de type feu', 170, 90.5));
+  /**
+   * get Pokemon List
+   */
+  getPokemons(): Observable<Pokemon[]> {
+    const url = BASE_URL + 'pokemon';
+
+    return new Observable(obs => {
+      this.http.get<Pokemon[]>(url).subscribe((response) => {
+          if (response) {
+            obs.next(response);
+            console.log(response);
+          } else {
+            obs.error('No response for pokemon list');
+          }
+        },
+        (error) => {
+          obs.error('Error ${error.status} during get pokemons');
+        });
+    });
   }
 
-
-  getPokemon() {
-    return this.pokemons;
+  /**
+   * get One Pokemon
+   */
+  getPokemon(url: string): Observable<Pokemon[]> {
+    return new Observable(obs => {
+      this.http.get<Pokemon>(url).subscribe((response) => {
+          if (response) {
+            obs.next(response);
+            console.log(response);
+          } else {
+            obs.error('No response for pokemon list');
+          }
+        },
+        (error) => {
+          obs.error('Error ${error.status} during get pokemons');
+        });
+    });
   }
 
-
- /* public affichageP(listePokemons: Pokemon[]): void {
-      for (const po of listePokemons) {
-        po.getNom();
-
-    }
-  }*/
 }
 

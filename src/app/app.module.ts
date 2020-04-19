@@ -11,6 +11,7 @@ import { MenuComponent } from './menu/menu.component';
 import {RouterModule, Routes} from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
 import { InconnuComponent } from './inconnu/inconnu.component';
+import {HttpClientModule} from '@angular/common/http';
 
 const appRoutes: Routes = [
   {path: 'accueil', component: AccueilComponent},
@@ -34,7 +35,7 @@ const appRoutes: Routes = [
     InconnuComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(appRoutes)
+    BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(appRoutes), HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
