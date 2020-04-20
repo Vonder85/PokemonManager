@@ -45,7 +45,6 @@ export class AffichagePokemonService {
       this.http.get<Pokemon>(url).subscribe((response) => {
           if (response) {
             obs.next(response);
-            console.log(response);
           } else {
             obs.error('No response for pokemon list');
           }
