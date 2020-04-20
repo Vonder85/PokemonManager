@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-
+import {MatCard} from '@angular/material/card';
 
 /**
  * @title Card with multiple sections
@@ -10,7 +10,6 @@ import { Component} from '@angular/core';
   templateUrl: 'card.component.html',
   styleUrls: ['card.component.css'],
 })
-
 // tslint:disable-next-line:component-class-suffix
 export class CardFancyExample {}
 

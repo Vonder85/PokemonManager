@@ -17,6 +17,7 @@ import {IgxButtonModule, IgxCardModule, IgxRippleModule} from 'igniteui-angular'
 import {MatSliderModule} from '@angular/material/slider';
 import {CardFancyExample} from './card/card.component';
 import {MatCard, MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from "@angular/material/button";
 
 
 const appRoutes: Routes = [
@@ -44,7 +45,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(appRoutes), HttpClientModule,
-    BrowserAnimationsModule, IgxCardModule, IgxButtonModule, IgxRippleModule, MatSliderModule, MatCard, MatCardModule
+    BrowserAnimationsModule, IgxCardModule, IgxButtonModule, IgxRippleModule, MatSliderModule, MatCard, MatCardModule, MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
