@@ -12,13 +12,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
 import { InconnuComponent } from './inconnu/inconnu.component';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {IgxButtonModule, IgxCardModule, IgxRippleModule} from 'igniteui-angular';
-import {MatSliderModule} from '@angular/material/slider';
-import {CardFancyExample} from './card/card.component';
-import {MatCard, MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from "@angular/material/button";
-
 
 const appRoutes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -40,12 +33,9 @@ const appRoutes: Routes = [
     MenuComponent,
     AccueilComponent,
     InconnuComponent,
-    CardFancyExample,
-    MatCard,
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(appRoutes), HttpClientModule,
-    BrowserAnimationsModule, IgxCardModule, IgxButtonModule, IgxRippleModule, MatSliderModule, MatCard, MatCardModule, MatButtonModule
+    BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(appRoutes), HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
