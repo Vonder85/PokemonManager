@@ -12,6 +12,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
 import { InconnuComponent } from './inconnu/inconnu.component';
 import { HttpClientModule } from '@angular/common/http';
+import {MatCardModule} from "@angular/material/card";
+import {MatButtonModule} from "@angular/material/button";
+import {CardFancyExample} from './card/card.component';
 
 const appRoutes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -33,9 +36,10 @@ const appRoutes: Routes = [
     MenuComponent,
     AccueilComponent,
     InconnuComponent,
+    CardFancyExample
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(appRoutes), HttpClientModule
+    BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(appRoutes), HttpClientModule, MatCardModule, MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
