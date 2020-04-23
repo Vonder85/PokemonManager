@@ -3,6 +3,7 @@ export class Pokemon {
     id: number;
     name: string;
     type: string;
+    photo: string;
 
   /*id: number;
     hp: number;
@@ -13,10 +14,11 @@ export class Pokemon {
     created: Date;*/
 
 
-    constructor(id: number , name: string, type: string) {
+    constructor(id: number , name: string, type: string, photo: string) {
       this.id = id;
       this.name = name;
       this.type = type;
+      this.photo = photo;
     }
 
 }
