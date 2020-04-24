@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Pokemon} from '../Models/pokemon';
-import {PokemonGestionService} from '../services/pokemon-gestion.service';
+import {Pokemon} from '../../Models/pokemon';
+import {PokemonGestionService} from '../../services/pokemon-gestion.service';
 
 @Component({
   selector: 'app-search-form-display',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AffichagePokemonService} from '../services/affichage-pokemon.service';
-import {Pokemon} from '../Models/pokemon';
+import {AffichagePokemonService} from '../../../services/affichage-pokemon.service';
+import {Pokemon} from '../../../Models/pokemon';
 
 @Component({
   selector: 'app-accueil',

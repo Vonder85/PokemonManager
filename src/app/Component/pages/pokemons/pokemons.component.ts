@@ -1,7 +1,7 @@
 
 import {Component, OnInit} from '@angular/core';
-import {Pokemon} from '../Models/pokemon';
-import {AffichagePokemonService} from '../services/affichage-pokemon.service';
+import {Pokemon} from '../../../Models/pokemon';
+import {AffichagePokemonService} from '../../../services/affichage-pokemon.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -25,6 +25,7 @@ export class PokemonsComponent implements OnInit {
                 , response.name, response['types'][0]['type'].name, response['sprites'].front_default);
               this.pokemons.push(this.poke1);
               this.pokemons.sort((a: Pokemon, b: Pokemon) => a.id - b.id);
+              //this.lesTypes.splice(0, this.lesTypes.length);
               });
         }
       });

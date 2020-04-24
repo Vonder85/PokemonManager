@@ -1,0 +1,16 @@
+
+<mat-card class="example-card" >
+  <mat-card-header>
+    <mat-card-title>{{pokemon.id}} : {{ pokemon.name }}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="{{pokemon.photo}}" alt="Photo of {{pokemon.name}}">
+  <mat-card-content>
+    <p>
+      Type : {{pokemon.type}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <!--<button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>-->
+  </mat-card-actions>
+</mat-card>

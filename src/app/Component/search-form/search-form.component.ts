@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {PokemonGestionService} from '../services/pokemon-gestion.service';
-import {Pokemon} from '../Models/pokemon';
+import {PokemonGestionService} from '../../services/pokemon-gestion.service';
+import {Pokemon} from '../../Models/pokemon';
 import {Subscription} from 'rxjs';
 import {SearchFormDisplayComponent} from '../search-form-display/search-form-display.component';
 

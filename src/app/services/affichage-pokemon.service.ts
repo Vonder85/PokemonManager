@@ -14,6 +14,7 @@ export class AffichagePokemonService {
   constructor(private http: HttpClient) {
   }
   pokemons: Pokemon[] = [];
+  pokemon: Pokemon;
     private id: number;
 
   /**
@@ -55,6 +56,7 @@ export class AffichagePokemonService {
         });
     });
   }
+
 
 }
 
