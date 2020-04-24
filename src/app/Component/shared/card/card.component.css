@@ -1,6 +1,7 @@
 .example-card {
-  max-width: 400px;
-  background-color: white;
+  width: 200px;
+  background-color: gray;
+  height: 300px;
 }
 
 .example-header-image {

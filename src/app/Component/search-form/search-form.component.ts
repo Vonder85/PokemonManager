@@ -1,9 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {PokemonGestionService} from '../../services/pokemon-gestion.service';
 import {Pokemon} from '../../Models/pokemon';
 import {Subscription} from 'rxjs';
-import {SearchFormDisplayComponent} from '../search-form-display/search-form-display.component';
+import {AffichagePokemonService} from "../../services/affichage-pokemon.service";
 
 @Component({
     selector: 'app-search-form',
@@ -16,7 +15,7 @@ export class SearchFormComponent implements OnInit, OnDestroy {
     angularForm: FormGroup;
     pokemons: Pokemon[];
     private subscriptionPokemon: Subscription;
-    constructor(private formBuilder: FormBuilder, private pokemonGestionService: PokemonGestionService) {
+    constructor(private formBuilder: FormBuilder, private affichagePokemonService: AffichagePokemonService) {
         this.creerForm();
     }
 
@@ -27,7 +26,7 @@ export class SearchFormComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-       this.subscriptionPokemon = this.pokemonGestionService.emetteurPokemon.subscribe((value) => this.pokemons = value);
+       this.subscriptionPokemon = this.affichagePokemonService.emetteurPokemon.subscribe((value) => this.pokemons = value);
     }
 
     ngOnDestroy(): void {
@@ -50,7 +49,7 @@ export class SearchFormComponent implements OnInit, OnDestroy {
 
     onRechercher() {
 
-        this.pokemonGestionService.rechercher(this.angularForm.controls.nom.value);
+        this.affichagePokemonService.rechercher(this.angularForm.controls.nom.value);
         /*if(this.angularForm.controls.nom.value === 'C3PO'){
             const img = 'http://media.giphy.com/media/3o7bu1nVSxNQUWMAZa/source.gif';
             this.pokemonGestionService.pokemonss.push()

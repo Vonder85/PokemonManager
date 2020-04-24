@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {Pokemon} from '../Models/pokemon';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
@@ -15,7 +15,8 @@ export class AffichagePokemonService {
   }
   pokemons: Pokemon[] = [];
   pokemon: Pokemon;
-    private id: number;
+  pokemonss: Pokemon[] = [];
+  emetteurPokemon: EventEmitter<Pokemon[]> = new EventEmitter<Pokemon[]>();
 
   /**
    * get Pokemon List
@@ -27,7 +28,6 @@ export class AffichagePokemonService {
       this.http.get<Pokemon[]>(url).subscribe((response) => {
           if (response) {
             obs.next(response);
-            console.log(response);
           } else {
             obs.error('No response for pokemon list');
           }
@@ -41,7 +41,7 @@ export class AffichagePokemonService {
   /**
    * get One Pokemon
    */
-  getPokemon(url: string): Observable<Pokemon[]> {
+  getPokemon(url: string): Observable<Pokemon> {
     return new Observable(obs => {
       this.http.get<Pokemon>(url).subscribe((response) => {
           if (response) {
@@ -57,6 +57,36 @@ export class AffichagePokemonService {
     });
   }
 
+  private notifier() {
+    this.emetteurPokemon.emit(this.pokemonss.slice());
+  }
+
+  public rechercher(nomPokemon: string) {
+
+    if(this.getPokemon(BASE_URL + nomPokemon + '/') != null){
+      this.getPokemon(BASE_URL + nomPokemon +'/').subscribe(response => {
+        const poke = new Pokemon(response.id
+          , response.name, response['types'][0]['type'].name, response['sprites'].front_default);
+        this.pokemonss.push(poke);
+        console.log('reussi')
+        this.notifier();
+      })
+    }else{
+      console.log('erreur');
+      return 'This Pokemon does not exist';
+    }
+
+   /* if (nomPokemon !== '') {
+      for (const nomPokemon of this.pokemonss) {
+        if (p.toLowerCase() === po.name.toLowerCase()) {
+          this.pokemonss.push(po);
+          this.notifier();
+          return true;
+        }
+      }
+    }*/
+
+  }
 
 }
 

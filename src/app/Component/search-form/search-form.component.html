@@ -1,5 +1,4 @@
 
-<div id="fond">
     <form [formGroup]="angularForm">
         <input type="text" formControlName="nom" [ngClass]="{'form-control': true, 'is-invalid' : nomInvalide()}">
         <button type="submit" [disabled]="pbValidation()" (click)="onRechercher()">Rechercher</button>
@@ -8,9 +7,8 @@
             Le nom ne doit contenir que des lettres
         </div>
     </form>
-<div *ngIf="pokemons.length>0">
+<div>
     <h2>Pokemon Recherché</h2>
-    <p *ngFor="let p of pokemons">{{p.toString()}}</p>
+    <p></p>
 </div>
 
-</div>

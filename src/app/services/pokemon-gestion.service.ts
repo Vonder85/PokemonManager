@@ -12,12 +12,7 @@ export class PokemonGestionService {
 
 
     constructor() {
-        /*this.pokemons.push(new Pokemon(1, 'Bulbizarre'));
-        this.pokemons.push(new Pokemon(2, 'Herbizarre'));
-        this.pokemons.push(new Pokemon(3, 'Florizarre'));
-        this.pokemons.push(new Pokemon(4, 'Salamèche'));
-        this.pokemons.push(new Pokemon(5, 'Reptincel'));
-        this.pokemons.push(new Pokemon(6, 'Dracaufeu'));*/
+
     }
 
     private notifier() {
